@@ -1,0 +1,19 @@
+﻿<Application x:Class="LetterBoxed.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LetterBoxed"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="WindowDefinitions/ColorDefinitions.xaml"/>
+                <ResourceDictionary Source="WindowDefinitions/FontDefinitions.xaml"/>
+                <ResourceDictionary Source="Styles/CustomLetterTextBlock.xaml"/>
+                <ResourceDictionary Source="Styles/CustomButtonStyle.xaml"/>
+                <ResourceDictionary Source="Styles/CustomCircle.xaml"/>
+                <ResourceDictionary Source="Styles/GeneralStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ToggleButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

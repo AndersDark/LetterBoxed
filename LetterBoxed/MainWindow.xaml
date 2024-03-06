@@ -1,0 +1,306 @@
+﻿<Window x:Class="LetterBoxed.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LetterBoxed"
+        mc:Ignorable="d"
+        Title="Letter Boxed" Height="500" Width="800"
+        ResizeMode="NoResize"
+        KeyDown="Window_KeyDown"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Storyboard x:Key="ShakeAnimation">
+            <DoubleAnimation 
+                Storyboard.TargetName="ShakeTransform"
+                Storyboard.TargetProperty="X" 
+                To="5" Duration="0:0:0.1" 
+                RepeatBehavior="3x" AutoReverse="True"/>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="{StaticResource BackgroundColor}" CornerRadius="0 0 0 0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontSize="60"
+                   FontFamily="{StaticResource TitleFont}"
+                   Text="Letter Boxed" 
+                   Foreground="{StaticResource TextColor}" 
+                   Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0 0 0 0">
+            <Line Stroke="Black"
+                  StrokeThickness="2"
+                  HorizontalAlignment="Center"
+                  X1="0" Y1="0"
+                  X2="250" Y2="0"/>
+
+            <Viewbox MaxWidth="250" 
+                     StretchDirection="DownOnly" 
+                     x:Name="currentwordbox"
+                     Margin="0 -40 0 0">
+                <Viewbox.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform x:Name="ShakeTransform"/>
+                    </TransformGroup>
+                </Viewbox.RenderTransform>
+                <TextBlock x:Name="WordString" 
+                           Foreground="Black"
+                           Text="000"
+                           FontFamily="{StaticResource LetterFont}"
+                           FontSize="30"
+                           HorizontalAlignment="Center"/>
+            </Viewbox>
+
+
+            <TextBlock x:Name="EnteredWords"
+                        Text="word - word"
+                        TextWrapping="Wrap"
+                        FontFamily="{StaticResource LetterFont}"
+                        FontSize="15"
+                        HorizontalAlignment="Center"
+                        Margin="30,10,30,0"/>
+        </StackPanel>
+
+        <Canvas x:Name="canvasArea"
+                Grid.Column="1"
+                Grid.Row="1"
+                Height="341"
+                Width="341"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <TextBox x:Name="LetterBox00"
+                     Canvas.Left="78" 
+                     Canvas.Top="10"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox01"
+                     Canvas.Left="153" 
+                     Canvas.Top="10"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox02"
+                     Canvas.Left="228" 
+                     Canvas.Top="10"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox10"
+                     Canvas.Left="296" 
+                     Canvas.Top="78"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox11"
+                     Canvas.Left="296" 
+                     Canvas.Top="153"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox12"
+                     Canvas.Left="296" 
+                     Canvas.Top="228"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox20"
+                     Canvas.Left="228" 
+                     Canvas.Top="296"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox21"
+                     Canvas.Left="153" 
+                     Canvas.Top="296"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox22"
+                     Canvas.Left="78" 
+                     Canvas.Top="296"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox30"
+                     Canvas.Left="10" 
+                     Canvas.Top="228"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox31"
+                     Canvas.Left="10" 
+                     Canvas.Top="153"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <TextBox x:Name="LetterBox32"
+                     Canvas.Left="10" 
+                     Canvas.Top="78"
+                     Style="{StaticResource CustomLetterTextBlock}"/>
+
+            <Ellipse x:Name="Circle00"
+                     Canvas.Left="90"
+                     Canvas.Top="46"
+                     Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle01"
+                     Canvas.Left="165"
+                     Canvas.Top="46"
+                     Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle02"
+                     Canvas.Left="240"
+                     Canvas.Top="46"
+                     Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle10"
+                    Canvas.Left="284"
+                    Canvas.Top="90"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle11"
+                    Canvas.Left="284"
+                    Canvas.Top="165"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle12"
+                    Canvas.Left="284"
+                    Canvas.Top="240"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle20"
+                    Canvas.Left="240"
+                    Canvas.Top="284"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle21"
+                    Canvas.Left="165"
+                    Canvas.Top="284"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle22"
+                    Canvas.Left="90"
+                    Canvas.Top="284"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle30"
+                    Canvas.Left="46"
+                    Canvas.Top="240"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle31"
+                    Canvas.Left="46"
+                    Canvas.Top="165"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Ellipse x:Name="Circle32"
+                    Canvas.Left="46"
+                    Canvas.Top="90"
+                    Style="{StaticResource CustomCircle}"/>
+
+            <Border HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="3"
+                    Width="241"
+                    Height="241" Canvas.Left="50" Canvas.Top="50"/>
+        </Canvas>
+
+        <Border x:Name="StartScreen"
+                Grid.ColumnSpan="2"
+                Grid.Row="2"
+                Background="{StaticResource PopUpBackgroundColor}"
+                BorderBrush="{StaticResource PopUpBorderColor}"
+                BorderThickness="4"
+                Margin="20"
+                Visibility="Visible">
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Stretch">
+
+                <CheckBox HorizontalAlignment="Right" 
+                          VerticalAlignment="Center"
+                          Margin="0 20 40 0"
+                          Click="Button_Click"
+                          Name="LanguageToggleBtn"
+                          IsChecked="True"
+                          Style="{DynamicResource OrangeSwitchStyle}"/>
+
+                <TextBlock Margin="0 40 0 0"
+                           FontSize="30"
+                           HorizontalAlignment="Center"
+                           FontFamily="{StaticResource GeneralFont}"
+                           Text="Welcome to LetterBoxed"/>
+                <TextBlock Margin="0 20 0 50"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           FontFamily="{StaticResource GeneralFont}"
+                           Text="Create words using letters around the square"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="Play Daily Challenge"
+                            Name="PlayDailyBtn"
+                            Click="Button_Click"
+                            Width="250"
+                            Style="{StaticResource CustomButtonStyle}"/>
+                    <Button Content="Play Random Challenge"
+                            Name="PlayRandomBtn"
+                            Click="Button_Click"
+                            Width="250"
+                            Style="{StaticResource CustomButtonStyle}"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+
+        <Border x:Name="EndScreen"
+                Grid.ColumnSpan="2"
+                Grid.Row="2"
+                Background="{StaticResource PopUpBackgroundColor}"
+                BorderBrush="{StaticResource PopUpBorderColor}"
+                Opacity="0.9"
+                BorderThickness="4"
+                Height="200"
+                Width="350"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Visibility="Hidden">
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Stretch">
+
+                <TextBlock Margin="50 30 50 20"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           FontFamily="{StaticResource GeneralFont}"
+                           HorizontalAlignment="Center"
+                           Text="Congratulations!"/>
+
+                <TextBlock x:Name="FinalScoreTextBox"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           FontFamily="{StaticResource GeneralFont}"
+                           Text="You used x tries"
+                           Margin="0 0 0 20"/>
+
+                <Button Content="Restart"
+                            Name="RestartGameBtn"
+                            Click="Button_Click"
+                            Width="200"
+                            Style="{StaticResource CustomButtonStyle}"/>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>

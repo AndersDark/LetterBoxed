@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\englishWords.txt" />
+    <None Remove="Assets\Fonts\dark forest.ttf" />
+    <None Remove="Assets\Fonts\darkforest.ttf" />
+    <None Remove="Assets\Fonts\Montserrat-Bold.ttf" />
+    <None Remove="Assets\Fonts\Montserrat-Regular.ttf" />
+    <None Remove="Assets\Fonts\SimplySquare.ttf" />
+    <None Remove="Assets\Fonts\Squares Bold Free.otf" />
+    <None Remove="Assets\Fonts\Squares Bold.otf" />
+    <None Remove="Assets\norwegianWords.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\englishWords.txt" />
+    <Resource Include="Assets\Fonts\dark forest.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-Bold.ttf" />
+    <Resource Include="Assets\Fonts\Montserrat-Regular.ttf" />
+    <Resource Include="Assets\Fonts\Squares Bold.otf" />
+    <EmbeddedResource Include="Assets\norwegianWords.txt" />
+  </ItemGroup>
+
+</Project>
